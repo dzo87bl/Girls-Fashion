@@ -40,3 +40,50 @@ $(document).ready(function() {
 	jQuery.scrollSpeed(100, 600);
 	
 });
+
+/* form verify */
+function verify() {
+	var error = 0;
+	var elm = ['name', 'email'];
+	for (var i = 0; i < elm.length; i++) {
+		if (document.getElementById(elm[i]).value.trim() == null || document.getElementById(elm[i]).value.trim() == '' || document.getElementById(elm[i]).value.trim() == '0') {
+			document.getElementById(elm[i]).style.outline = '1px solid red';
+			error = 1;
+			if (elm[i] == 'country') {
+				$('#' + elm[i] + '').selectpicker('setStyle', 'btn-danger');
+			}
+		} else {
+			document.getElementById(elm[i]).style.outline = 'none';
+			if (elm[i] == 'country') {
+				error = 0;
+				$('#' + elm[i] + '').selectpicker('setStyle', 'btn-danger', 'remove');
+				$('#' + elm[i] + '').selectpicker('refresh');
+			}
+		}
+		if (elm[i] == 'email') {
+			if (document.getElementById('email').value.trim() != '') {
+				var emailReg1 = /(@.*@)|(\.\.)|(@\.)|(\.@)|(^\.)/;
+				// not valid
+				var emailReg2 = /^.+\@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,6}|[0-9]{1,3})(\]?)$/;
+				if (!(!emailReg1.test(document.getElementById('email').value) && emailReg2.test(document.getElementById('email').value))) {
+					error = 1;
+					document.getElementById('email').style.outline = '1px solid red';
+				} else {
+					error = 0;
+					document.getElementById(elm[i]).style.outline = 'none';
+				}
+			}
+		}
+	}
+	if (error == 0) {
+		//alert('OK: ' + error);
+		this.form.submit();
+		//document.getElementById('{formname}').submit();
+	} else {
+		//alert('ERROR: ' + error);
+		//error=0;
+		//alert('All fields are requested!');
+		//$('#myModal').show();
+		return false;
+	}
+}
