@@ -256,9 +256,8 @@ body {
 
 /************************* MAIN *************************/
 
-#main img {
-	margin-top: 10px;
-	margin-bottom: 10px;
+#main [class*='col-sm-'] {
+	margin-bottom: 20px;
 }
 
 /************************* ASIDE *************************/
@@ -364,6 +363,7 @@ hr {
     text-align: center;
     cursor: default;
 }
+
 .hovereffect .overlay {
     width: 100%;
     position: absolute;
@@ -373,8 +373,8 @@ hr {
 	bottom: 0;
 	padding: 1em;
 	height: 4.75em;
-	background: #79FAC4;
-	color: #3c4a50;
+	background: #ccc;
+	color: #333;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,100%,0);
@@ -411,11 +411,12 @@ hr {
     text-decoration: none;
     padding: 7px 14px;
     text-transform: uppercase;
-	color: #fff;
+	color: #333;
 	border: 1px solid #fff;
 	margin: 50px 0 0 0;
 	background-color: transparent;
 }
+
 .hovereffect a.info:hover {
     box-shadow: 0 0 5px #fff;
 }
@@ -423,13 +424,13 @@ hr {
 
 .hovereffect p.icon-links a {
 	float: right;
-	color: #3c4a50;
+	color: #333;
 	font-size: 1.4em;
 }
 
 .hovereffect:hover p.icon-links a:hover,
 .hovereffect:hover p.icon-links a:focus {
-	color: #252d31;
+	color: #333;
 }
 
 .hovereffect h2,
@@ -447,7 +448,6 @@ hr {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
 
 .hovereffect:hover .overlay,
 .hovereffect:hover h2,
@@ -565,6 +565,22 @@ input:-moz-placeholder {  }
     width: 100%;
     height: 500px;
     margin-bottom: 20px;
+}
+
+/* slider */
+
+.flex-caption {
+    width: 100%;
+    padding: 2%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+    color: #fff;
+    /*text-align: center;*/
+    text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+    font-size: 14px;
+    line-height: 18px;
 }
 
 /************************* ANIMATIONS *************************/
