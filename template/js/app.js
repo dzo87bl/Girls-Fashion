@@ -38,7 +38,7 @@ $(document).ready(function() {
 	/* cart */
 	var subtotalPrice;
 	function calculateCart() {
-		subtotalPrice = parseInt($('.subtotal-price').text());
+		subtotalPrice = 0;
 		$('.subtotal-product-price').each(function(){
 			subtotalPrice += parseInt($(this).text());
 		});
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		} else {
 			$("input[name=" + fieldName + "]").val(0);
 		}
-		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		currentVal = parseInt($("input[name=" + fieldName + "]").val());
 		var price = parseInt($(this).closest('tr').find('.single-price').text());
 		var subtotal_product_price = currentVal * price;
 		$(this).closest('tr').find('.subtotal-product-price').text(subtotal_product_price.toFixed(2));
@@ -74,7 +74,7 @@ $(document).ready(function() {
 		} else {
 			$("input[name=" + fieldName + "]").val(0);
 		}
-		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		currentVal = parseInt($("input[name=" + fieldName + "]").val());
 		var price = parseInt($(this).closest('tr').find('.single-price').text());
 		var subtotal_product_price = currentVal * price;
 		$(this).closest('tr').find('.subtotal-product-price').text(subtotal_product_price.toFixed(2));
