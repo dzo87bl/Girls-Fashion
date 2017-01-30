@@ -36,9 +36,9 @@ $(document).ready(function() {
 	});
 
 	/* cart */
-	
-	function calculate() {
-		var subtotalPrice = parseInt($('.subtotal-price').text());
+	var subtotalPrice;
+	function calculateCart() {
+		subtotalPrice = parseInt($('.subtotal-price').text());
 		$('.subtotal-product-price').each(function(){
 			subtotalPrice += parseInt($(this).text());
 		});
@@ -46,7 +46,7 @@ $(document).ready(function() {
 		$('.total-price').text(parseInt(subtotalPrice.toFixed(2)) + (parseInt(subtotalPrice.toFixed(2)) * 11/100));
 	}
 	
-	calculate();
+	calculateCart();
 	
 	$(".plus").click(function(e) {
 		e.preventDefault();
@@ -59,8 +59,9 @@ $(document).ready(function() {
 		}
 		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
 		var price = parseInt($(this).closest('tr').find('.single-price').text());
-		$(this).closest('tr').find('.subtotal-product-price').text(currentVal * price.toFixed(2));
-		calculate();
+		var subtotal_product_price = currentVal * price;
+		$(this).closest('tr').find('.subtotal-product-price').text(subtotal_product_price.toFixed(2));
+		calculateCart();
 	});
 	
 	$(".minus").click(function(e) {
@@ -74,8 +75,9 @@ $(document).ready(function() {
 		}
 		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
 		var price = parseInt($(this).closest('tr').find('.single-price').text());
-		$(this).closest('tr').find('.subtotal-product-price').text(currentVal * price.toFixed(2));
-		calculate();
+		var subtotal_product_price = currentVal * price;
+		$(this).closest('tr').find('.subtotal-product-price').text(subtotal_product_price.toFixed(2));
+		calculateCart();
 	});
 
 	/* delete from cart */
@@ -86,6 +88,9 @@ $(document).ready(function() {
 
 	$('.cart-remove').click(function(e){
 		var x = document.getElementById('row-' + pid);
+		var subtotal_price = parseInt($(x).find('.subtotal-product-price').text());
+		$('.subtotal-price').text(subtotalPrice.toFixed(2) - subtotal_price.toFixed(2));
+		$('.total-price').text(parseInt(subtotalPrice.toFixed(2)) + (parseInt(subtotalPrice.toFixed(2)) * 11/100));
 		$(x).hide(200, function() {
 			$(this).remove();
 		});
