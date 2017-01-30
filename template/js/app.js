@@ -43,7 +43,8 @@ $(document).ready(function() {
 			subtotalPrice += parseInt($(this).text());
 		});
 		$('.subtotal-price').text(subtotalPrice.toFixed(2));
-		$('.total-price').text(parseInt(subtotalPrice.toFixed(2)) + (parseInt(subtotalPrice.toFixed(2)) * 11/100));
+		total = parseInt(subtotalPrice) + (parseInt(subtotalPrice) * 11/100);
+		$('.total-price').text(total.toFixed(2));
 	}
 	
 	calculateCart();
