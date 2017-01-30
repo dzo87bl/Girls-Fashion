@@ -293,6 +293,22 @@ a {
 
 /************************* ELEMENTS *************************/
 
+/* table */
+
+.table > tbody > tr > td,
+.table > tbody > tr > th, 
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table .table {
+	margin: 0px;
+}
+
 /* horizontal line */
 
 hr {
@@ -350,6 +366,22 @@ hr {
 
 .media-heading {
     margin-top: 15px;
+}
+
+/* label */
+
+.label {
+	border-radius: 0px;
+}
+
+/* modal */
+
+.modal-dialog {
+	margin: 100px auto;
+}
+
+.modal-content {
+	border-radius: 0px;
 }
 
 /* gallery */
@@ -476,6 +508,74 @@ hr {
 	transition-delay: 0.2s;
 }
 
+/* flip */
+
+/* entire container, keeps perspective */
+
+.flip-container {
+	margin-bottom: 20px;
+	perspective: 600px;
+}
+
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 100%;
+	max-width: 350px;
+	height: 100%;
+	min-height: 350px;
+	/*min-height: 250px;*/
+	
+}
+
+.flip-container-xs, .front-xs, .back-xs {
+	width: 100%;
+	max-width: 255px;
+	height: 100%;
+	min-height: 255px;
+	/*min-height: 250px;*/
+}
+
+/* flip speed goes here */
+
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+
+.back {
+	transform: rotateY(180deg);
+	color: #2b2b2b;
+	background: #fbf18e !important; /* d7ba76 */
+	padding: 0px 15px;
+}
+
 /* title with single lines */
 
 .title-line {
@@ -526,6 +626,14 @@ hr {
 input:-moz-placeholder {  }
 
 /************************* HELPERS *************************/
+
+/* block */
+
+.block-black-white {
+	color: #ccc;
+	background: #333;
+	text-align: right !important;
+}
 
 /* loader */
 

@@ -35,6 +35,63 @@ $(document).ready(function() {
 		$(this).hide();
 	});
 
+	/* cart */
+	
+	function calculate() {
+		var subtotalPrice = parseInt($('.subtotal-price').text());
+		$('.subtotal-product-price').each(function(){
+			subtotalPrice += parseInt($(this).text());
+		});
+		$('.subtotal-price').text(subtotalPrice.toFixed(2));
+		$('.total-price').text(parseInt(subtotalPrice.toFixed(2)) + (parseInt(subtotalPrice.toFixed(2)) * 11/100));
+	}
+	
+	calculate();
+	
+	$(".plus").click(function(e) {
+		e.preventDefault();
+		fieldName = $(this).attr("field");
+		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		if (!isNaN(currentVal)) {
+			$("input[name=" + fieldName + "]").val(currentVal + 1);
+		} else {
+			$("input[name=" + fieldName + "]").val(0);
+		}
+		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		var price = parseInt($(this).closest('tr').find('.single-price').text());
+		$(this).closest('tr').find('.subtotal-product-price').text(currentVal * price.toFixed(2));
+		calculate();
+	});
+	
+	$(".minus").click(function(e) {
+		e.preventDefault();
+		fieldName = $(this).attr("field");
+		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		if (!isNaN(currentVal) && currentVal > 0) {
+			$("input[name=" + fieldName + "]").val(currentVal - 1);
+		} else {
+			$("input[name=" + fieldName + "]").val(0);
+		}
+		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		var price = parseInt($(this).closest('tr').find('.single-price').text());
+		$(this).closest('tr').find('.subtotal-product-price').text(currentVal * price.toFixed(2));
+		calculate();
+	});
+
+	/* delete from cart */
+	var pid;
+	$('.cart-delete').click(function(e){
+		pid = $(this).attr('pid');
+	});
+
+	$('.cart-remove').click(function(e){
+		var x = document.getElementById('row-' + pid);
+		$(x).hide(200, function() {
+			$(this).remove();
+		});
+		$('#myModal').modal('hide');
+	});
+
 	/* window scroll */
 	// $fn.scrollSpeed(step, speed, easing);
 	jQuery.scrollSpeed(100, 600);
@@ -43,9 +100,9 @@ $(document).ready(function() {
 	$(".fancybox").fancybox({
 		openEffect : 'elastic',
 		closeEffect : 'elastic',
-		helpers: {
-			overlay: {
-				locked: false
+		helpers : {
+			overlay : {
+				locked : false
 			}
 		}
 	});

@@ -41,8 +41,8 @@
 		<script type="text/javascript" src="plugins/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
 		<link rel="stylesheet" href="plugins/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 		<script type="text/javascript" src="plugins/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-		<script src="plugins/flexslider/jquery.flexslider-min.js" type="text/javascript" ></script>
-		<link rel="stylesheet" type="text/css" href="plugins/flexslider/flexslider.css" />
+		<script src="plugins/flexslider/jquery.flexslider-min.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="plugins/flexslider/flexslider.css"/>
 		<!-- GOOGLE -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
@@ -117,7 +117,114 @@
 					<div class="col-sm-12">
 						<h2>Cart</h2>
 					</div>
-					
+					<div class="col-sm-12">
+						<div class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<td>Image</td>
+										<td>Product</td>
+										<td style="width: 175px;">Quantity</td>
+										<td>Price</td>
+										<td>Subtotal</td>
+										<td style="width: 200px;">Action</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr id="row-1">
+										<td><img src="img/tpl/cart-1.jpg" class="img-responsive center-block" style="max-width: 50px;" alt="..."/></td>
+										<td>Cosmetics</td>
+										<td>
+											<div class="input-group">
+												<input type="text" name="spiner-1" class="form-control" id="spiner-1" value="1" placeholder="Quantity" size="" maxlength="">
+												<span class="input-group-btn">
+													<button class="btn btn-default plus" type="button" field="spiner-1">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+													<button class="btn btn-default minus" type="button" field="spiner-1">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+											</div>
+										</td>
+										<td><span class="single-price">20.00</span> &euro;</td>
+										<td><span class="subtotal-product-price">20.00</span> &euro;</td>
+										<td><a class="btn btn-default cart-delete" href="#" role="button" data-toggle="modal" data-target="#myModal" pid="1"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a></td>
+									</tr>
+									<tr id="row-2">
+										<td><img src="img/tpl/cart-2.jpg" class="img-responsive center-block" style="max-width: 50px;" alt="..."/></td>
+										<td>Bag</td>
+										<td>
+											<div class="input-group">
+												<input type="text" name="spiner-2" class="form-control" id="spiner-2" value="1" placeholder="Quantity" size="" maxlength="">
+												<span class="input-group-btn">
+													<button class="btn btn-default plus" type="button" field="spiner-2">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+													<button class="btn btn-default minus" type="button" field="spiner-2">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+											</div>
+										</td>
+										<td><span class="single-price">50.00</span> &euro;</td>
+										<td><span class="subtotal-product-price">50.00</span> &euro;</td>
+										<td><a class="btn btn-default cart-delete" href="#" role="button" data-toggle="modal" data-target="#myModal" pid="2"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a></td>
+									</tr>
+									<tr id="row-3">
+										<td><img src="img/tpl/cart-3.jpg" class="img-responsive center-block" style="max-width: 50px;" alt="..."/></td>
+										<td>Parfume</td>
+										<td>
+											<div class="input-group">
+												<input type="text" name="spiner-3" class="form-control" id="spiner-3" value="1" placeholder="Quantity" size="" maxlength="">
+												<span class="input-group-btn">
+													<button class="btn btn-default plus" type="button" field="spiner-3">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+													<button class="btn btn-default minus" type="button" field="spiner-3">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+											</div>
+										</td>
+										<td><span class="single-price">30.00</span> &euro;</td>
+										<td><span class="subtotal-product-price">30.00</span> &euro;</td>
+										<td><a class="btn btn-default cart-delete" href="#" role="button" data-toggle="modal" data-target="#myModal" pid="3"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<td colspan="3">
+										<button class="btn btn-default hvr-float-shadow pull-left" type="button">
+											<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 
+											Continue Shopping
+										</button>
+									</td>
+									<td colspan="2">
+										<table class="table">
+											<tr>
+												<td class="block-black-white">Subtotal price</td>
+												<td><span class="subtotal-price">0.00</span> &euro;</td>
+											</tr>
+											<tr>
+												<td class="block-black-white">Tax</td>
+												<td><span class="tax">11</span> %</td>
+											</tr>
+											<tr>
+												<td class="block-black-white">Total price</td>
+												<td><span class="total-price">0.00</span> &euro;</td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<button class="btn btn-default hvr-float-shadow pull-left" type="button">
+											<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> 
+											Proceed to Checkout
+										</button>
+									</td>
+								</tfoot>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -144,17 +251,22 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						<h4 class="modal-title" id="myModalLabel">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 
+							Delete
+						</h4>
 					</div>
 					<div class="modal-body">
-						...
+						Are you sure you wont to delete product from cart?
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">
-							Close
+						<button type="button" class="btn btn-default cart-remove">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 
+							Yes
 						</button>
-						<button type="button" class="btn btn-primary">
-							Save changes
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 
+							No
 						</button>
 					</div>
 				</div>
